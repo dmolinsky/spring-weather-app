@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Väder i Liljeholmen</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/style.css}">
+</head>
+<body>
+
+<h1>Optimal väderprognos för Liljeholmen</h1>
+
+<main>
+    <section class="weather-data">
+        <p><span class="label">Källa:</span> <!-- <span th:text="${weather.origin}"></span> --> SMHI</p>
+        <p><span class="label">Temperatur:</span> <!-- <span th:text="${weather.temp}"></span> --> 12.5 °C</p>
+        <p><span class="label">Luftfuktighet:</span> <!-- <span th:text="${weather.humidity}"></span> --> 46%</p>
+        <p><span class="label">Prognosens tidpunkt:</span> <!-- <span th:text="${weather.timestamp}"></span> --> 2025-05-13 11:24</p>
+    </section>
+
+    <section class="forecast-details">
+        <h2>Detaljerad prognos</h2>
+        <ul>
+            <!--<li>Molnighet: <span th:text="${weather.clouds}"></span>%</li>-->
+            <!--<li>Vindhastighet: <span th:text="${weather.windSpeed}"></span> m/s</li>-->
+            <li>Molnighet: 60%</li>
+            <li>Vindhastighet: 3.5 m/s</li>
+        </ul>
+    </section>
+
+</main>
+
+</body>
+</html>
