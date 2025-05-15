@@ -4,10 +4,17 @@
     <meta charset="UTF-8">
     <title>Väder i Liljeholmen</title>
     <link rel="stylesheet" type="text/css" th:href="@{/style.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.10/css/weather-icons.min.css">
+
 </head>
 <body>
 
 <h1>Optimal väderprognos för Liljeholmen</h1>
+
+<div class="weather-icon">
+    <img th:src="@{'/images/weather/' + ${weather.iconFilename}}"
+         alt="Väderikon">
+</div>
 
 <main>
     <section class="weather-data">

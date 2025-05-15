@@ -24,3 +24,13 @@ h1 {
 .label {
     font-weight: bold;
 }
+
+.weather-icon {
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.weather-icon img {
+    width: 128px;
+    height: auto;
+}
