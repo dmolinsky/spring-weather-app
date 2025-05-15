@@ -12,10 +12,10 @@ public class WeatherService {
         String origin = "MockWeatherAPI";
         double temperature = 19.2;
         int humidity = 42;
-        double precipitationAmount = 0.0;
+        double precipitationChance = 0.0;
         double windSpeed = 2.5;
         LocalDateTime timestamp = LocalDateTime.now().plusHours(24);
 
-        return new WeatherData(origin, temperature, humidity, precipitationAmount, windSpeed, timestamp);
+        return new WeatherData(origin, temperature, humidity, precipitationChance, windSpeed, timestamp);
     }
 }

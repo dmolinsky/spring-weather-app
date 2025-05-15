@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @ToString
-@AllArgsConstructor
+//@AllArgsConstructor
 @NoArgsConstructor
 public class WeatherData {
 
@@ -18,5 +18,13 @@ public class WeatherData {
     private double windSpeed;
     private LocalDateTime timestamp;
 
+    public WeatherData(String origin, double temperature, int humidity, double precipitationChance, double windSpeed, LocalDateTime timestamp) {
+        this.origin = origin;
+        this.temperature = temperature;
+        this.humidity = humidity;
+        this.precipitationChance = precipitationChance;
+        this.windSpeed = windSpeed;
+        this.timestamp = timestamp;
+    }
 
 }
