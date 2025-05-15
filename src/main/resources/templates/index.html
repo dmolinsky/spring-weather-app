@@ -20,15 +20,27 @@
 
         <div class="weather-box-container">
             <section class="weather-box">
-                <p><span class="label">Temperatur:</span> <span th:text="${weather.temperature}">12.5 °C</span></p>
-                <p><span class="label">Luftfuktighet:</span> <span th:text="${weather.humidity}">46%</span></p>
-                <p><span class="label">Molnighet:</span> <span th:text="${weather.precipitationChance}">60%</span></p>
+                <p><span class="label">Temperatur:</span>
+                    <span th:text="${weather.temperature} + ' °C'"></span>
+                </p>
+                <p><span class="label">Luftfuktighet:</span>
+                    <span th:text="${weather.humidity} + '%'"></span>
+                </p>
+                <p><span class="label">Molnighet:</span>
+                    <span th:text="${weather.precipitationChance} + '%'"></span>
+                </p>
             </section>
 
             <section class="weather-box">
-                <p><span class="label">Vindhastighet:</span> <span th:text="${weather.windSpeed}">3.5 m/s</span></p>
-                <p><span class="label">Prognosens tidpunkt:</span> <span th:text="${weather.timestamp}">2025-05-13 11:24</span></p>
-                <p><span class="label">Källa:</span> <span th:text="${weather.origin}">SMHI</span></p>
+                <p><span class="label">Vindhastighet:</span>
+                    <span th:text="${weather.windSpeed} + ' m/s'"></span>
+                </p>
+                <p><span class="label">Prognosens tidpunkt:</span>
+                    <span th:text="${#temporals.format(weather.timestamp, 'yyyy-MM-dd HH:mm')}"></span>
+                </p>
+                <p><span class="label">Källa:</span>
+                    <span th:text="${weather.origin}"></span>
+                </p>
             </section>
         </div>
     </section>
