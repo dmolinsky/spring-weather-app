@@ -11,10 +11,11 @@ public class WeatherData {
     private double windSpeed;
     private LocalDateTime timestamp;
     private String iconFilename;
+    private String styleId;
 
     public WeatherData(String origin, double temperature, int humidity,
                        double precipitationChance, double windSpeed,
-                       LocalDateTime timestamp, String iconFilename) {
+                       LocalDateTime timestamp, String iconFilename, String styleId) {
         this.origin = origin;
         this.temperature = temperature;
         this.humidity = humidity;
@@ -22,6 +23,7 @@ public class WeatherData {
         this.windSpeed = windSpeed;
         this.timestamp = timestamp;
         this.iconFilename = iconFilename;
+        this.styleId = styleId;
     }
 
     public String getOrigin() {
@@ -51,6 +53,9 @@ public class WeatherData {
     public String getIconFilename() {
         return iconFilename;
     }
+    public String getStyleId() {
+        return styleId;
+    }
 
     public void setOrigin(String origin) {
         this.origin = origin;
@@ -78,5 +83,9 @@ public class WeatherData {
 
     public void setIconClass(String iconFilename) {
         this.iconFilename = iconFilename;
+    }
+
+    public void setStyleId(String styleId) {
+        this.styleId = styleId;
     }
 }

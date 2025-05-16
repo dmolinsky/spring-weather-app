@@ -12,7 +12,7 @@
 <h1>Väder i Liljeholmen!</h1>
 
 <main>
-    <section class="weather-data">
+    <section class="weather-data" th:id="${weather.styleId}">
         <div class="weather-icon">
             <img th:src="@{'/images/weather/' + ${weather.iconFilename}}"
                  alt="Väderikon">

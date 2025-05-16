@@ -46,4 +46,15 @@ public class WeatherService {
         return temperatureScore + humidityScore + precipitationScore + windScore;
     }
 
+    private String mapSymbolToStyleId(String iconFilename) {
+        return switch (iconFilename) {
+            case "day-sunny.png" -> "sunny";
+            case "day-cloudy.png", "cloudy.png" -> "cloudy";
+            case "showers.png", "rain.png" -> "rainy";
+            case "storm-showers.png", "thunderstorm.png" -> "stormy";
+            case "snow.png", "sleet.png" -> "snowy";
+            default -> "neutral";
+        };
+    }
+
 }

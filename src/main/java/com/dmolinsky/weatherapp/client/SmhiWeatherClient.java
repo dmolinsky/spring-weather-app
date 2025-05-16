@@ -50,8 +50,9 @@ public class SmhiWeatherClient {
                     int symbol = (int) getParameter(entry, "Wsymb2");
 
                     String iconFilename = mapSymbolToIconFile(symbol);
+                    String styleId = mapSymbolToStyleId(iconFilename);
 
-                    return new WeatherData("SMHI", temperature, humidity, symbol, windSpeed, entryTime, iconFilename);
+                    return new WeatherData("SMHI", temperature, humidity, symbol, windSpeed, entryTime, iconFilename, styleId);
                 }
             }
 
@@ -84,6 +85,17 @@ public class SmhiWeatherClient {
             case 13, 15 -> "thunderstorm.png";
             case 14 -> "storm-showers.png";
             default -> "na.png";
+        };
+    }
+
+    private String mapSymbolToStyleId(String iconFilename) {
+        return switch (iconFilename) {
+            case "day-sunny.png" -> "sunny";
+            case "day-cloudy.png", "cloudy.png" -> "cloudy";
+            case "showers.png", "rain.png" -> "rainy";
+            case "storm-showers.png", "thunderstorm.png" -> "stormy";
+            case "snow.png", "sleet.png" -> "snowy";
+            default -> "neutral";
         };
     }
 

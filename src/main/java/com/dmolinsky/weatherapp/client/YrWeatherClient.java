@@ -58,8 +58,9 @@ public class YrWeatherClient {
                             .asText();
 
                     String iconFilename = mapSymbolToIconFile(symbolCode);
+                    String styleId = mapSymbolToStyleId(iconFilename);
 
-                    return new WeatherData("Yr", temperature, humidity, 0, windSpeed, entryTime, iconFilename);
+                    return new WeatherData("Yr", temperature, humidity, 0, windSpeed, entryTime, iconFilename, styleId);
                 }
             }
 
@@ -82,6 +83,17 @@ public class YrWeatherClient {
             case "sleet" -> "sleet.png";
             case "thunderstorm" -> "thunderstorm.png";
             default -> "na.png";
+        };
+    }
+
+    private String mapSymbolToStyleId(String iconFilename) {
+        return switch (iconFilename) {
+            case "day-sunny.png" -> "sunny";
+            case "day-cloudy.png", "cloudy.png" -> "cloudy";
+            case "showers.png", "rain.png" -> "rainy";
+            case "storm-showers.png", "thunderstorm.png" -> "stormy";
+            case "snow.png", "sleet.png" -> "snowy";
+            default -> "neutral";
         };
     }
 }
