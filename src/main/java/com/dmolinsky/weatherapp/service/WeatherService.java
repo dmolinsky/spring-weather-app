@@ -1,5 +1,6 @@
 package com.dmolinsky.weatherapp.service;
 
+import com.dmolinsky.weatherapp.client.DmiWeatherClient;
 import com.dmolinsky.weatherapp.client.SmhiWeatherClient;
 import com.dmolinsky.weatherapp.client.YrWeatherClient;
 import com.dmolinsky.weatherapp.model.WeatherData;
@@ -12,21 +13,31 @@ public class WeatherService {
 
     private final SmhiWeatherClient smhiWeatherClient;
     private final YrWeatherClient yrWeatherClient;
+    private final DmiWeatherClient dmiWeatherClient;
 
     @Autowired
-    public WeatherService(SmhiWeatherClient smhiWeatherClient, YrWeatherClient yrWeatherClient) {
+    public WeatherService(SmhiWeatherClient smhiWeatherClient, YrWeatherClient yrWeatherClient, DmiWeatherClient dmiWeatherClient) {
         this.smhiWeatherClient = smhiWeatherClient;
         this.yrWeatherClient = yrWeatherClient;
+        this.dmiWeatherClient = dmiWeatherClient;
     }
 
     public WeatherData getOptimalWeather() {
         WeatherData smhiData = smhiWeatherClient.getWeather();
         WeatherData yrData = yrWeatherClient.getWeather();
+        WeatherData dmiData = dmiWeatherClient.getWeather();
 
         double smhiDataScore = calculateScore(smhiData);
         double yrDataScore = calculateScore(yrData);
+        double dmiDataScore = calculateScore(dmiData);
 
-        return smhiDataScore > yrDataScore ? yrData : smhiData;
+        if (smhiDataScore >= yrDataScore && smhiDataScore >= dmiDataScore) {
+            return smhiData;
+        } else if (yrDataScore >= smhiDataScore && yrDataScore >= dmiDataScore) {
+            return yrData;
+        } else {
+            return dmiData;
+        }
 
     }
 

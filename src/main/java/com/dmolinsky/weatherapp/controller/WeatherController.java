@@ -21,4 +21,5 @@ public class WeatherController {
         model.addAttribute("weather", weather);
         return "index";
     }
+
 }

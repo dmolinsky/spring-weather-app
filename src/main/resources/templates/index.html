@@ -5,14 +5,19 @@
     <title>Väder i Liljeholmen</title>
     <link rel="stylesheet" type="text/css" th:href="@{/style.css}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.10/css/weather-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
 </head>
 <body>
 
-<h1>Väder i Liljeholmen!</h1>
 
 <main>
     <section class="weather-data" th:id="${weather.styleId}">
+
+        <h1>Weather</h1>
+        <h3>in Liljeholmen tomorrow:</h3>
         <div class="weather-icon">
             <img th:src="@{'/images/weather/' + ${weather.iconFilename}}"
                  alt="Väderikon">
@@ -40,6 +45,11 @@
                 </p>
                 <p><span class="label">Källa:</span>
                     <span th:text="${weather.origin}"></span>
+                </p>
+            </section>
+
+            <section id="disclaimer">
+                <p><span>Presenting the best forecast based on data from SMHI and YR.</span>
                 </p>
             </section>
         </div>
