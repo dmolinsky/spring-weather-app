@@ -20,6 +20,8 @@ The application integrates with the following external weather APIs:
 |--------|-----|-------------|
 | **SMHI** (Swedish Meteorological and Hydrological Institute) | `https://opendata-download-metfcst.smhi.se/` | Real-time 24-hour weather forecast data for a given coordinate |
 | **Yr / MET Norway** | `https://api.met.no/weatherapi/locationforecast/2.0/compact` | Hourly forecast data provided by the Norwegian Meteorological Institute |
+| **DMI** (Danish Meteorological Institute) | `https://dmigw.govcloud.dk/v1/forecastedr/collections/harmonie_dini_sf/position` | High-resolution local weather forecast data for Denmark and surrounding regions |
+
 
 Each API is accessed through a dedicated service class that maps the provider’s data format to a common internal model (`WeatherData`).
 
